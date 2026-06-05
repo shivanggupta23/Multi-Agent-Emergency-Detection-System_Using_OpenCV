@@ -2693,8 +2693,14 @@ class SeverityClassifier(nn.Module):
 @st.cache_resource
 def load_models():
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    base_path = r"C:\Users\shiva\OneDrive\Desktop\cv_project_env"
-    models_path = os.path.join(base_path, "models")
+
+    # Streamlit Cloud compatible path
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    models_path = os.path.join(BASE_DIR, "models")
+
+    print(f"BASE_DIR = {BASE_DIR}")
+    print(f"MODELS_PATH = {models_path}") 
+    print(f"Models folder exists = {os.path.exists(models_path)}")
     
     clip_model, _, preprocess = open_clip.create_model_and_transforms(
         'ViT-B-32', pretrained='laion2b_s34b_b79k'
