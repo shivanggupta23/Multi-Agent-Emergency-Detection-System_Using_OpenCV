@@ -1415,8 +1415,14 @@ st.markdown("""
 #     """Load all models - EXACT from working app.py"""
     
 #     device = "cuda" if torch.cuda.is_available() else "cpu"
-#     base_path = r"C:\Users\shiva\OneDrive\Desktop\cv_project_env"
-#     models_path = os.path.join(base_path, "models")
+#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#     models_path = os.path.join(BASE_DIR, "models")
+
+#     st.write("MODELS_PATH:", models_path)
+#     st.write("EXISTS:", os.path.exists(models_path))
+
+#     if os.path.exists(models_path):
+#         st.write(os.listdir(models_path))
     
 #     # OpenCLIP
 #     clip_model, _, preprocess = open_clip.create_model_and_transforms(
@@ -1438,8 +1444,8 @@ st.markdown("""
 #     violence_model = ViolenceDetector().to(device)
 #     violence_model.load_state_dict(
 #         torch.load(os.path.join(models_path, "violence_agent_best.pth"),
-#                   map_location=device, weights_only=True)
-#     )
+#                   map_location=device)
+#     
 #     violence_model.eval()
     
 #     # Accident Model
