@@ -179,8 +179,14 @@
 #     """Load all models - EXACT MATCH TO TRAINING"""
     
 #     device = "cuda" if torch.cuda.is_available() else "cpu"
-#     base_path = r"C:\Users\shiva\OneDrive\Desktop\cv_project_env"
-#     models_path = os.path.join(base_path, "models")
+
+#     Streamlit Cloud compatible path
+#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#     models_path = os.path.join(BASE_DIR, "models")
+
+#     print(f"BASE_DIR: {BASE_DIR}")
+#     print(f"MODELS_PATH: {models_path}")
+#     print(f"Models folder exists: {os.path.exists(models_path)}")
     
 #     # Load OpenCLIP (EXACT MATCH: laion2b_s34b_b79k)
 #     clip_model, _, preprocess = open_clip.create_model_and_transforms(
@@ -790,8 +796,12 @@ st.markdown("""
 #     """Load all models - EXACT from working app.py"""
     
 #     device = "cuda" if torch.cuda.is_available() else "cpu"
-#     base_path = r"C:\Users\shiva\OneDrive\Desktop\cv_project_env"
-#     models_path = os.path.join(base_path, "models")
+#     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#     models_path = os.path.join(BASE_DIR, "models")
+
+#     print(f"BASE_DIR = {BASE_DIR}")
+#     print(f"MODELS_PATH = {models_path}")
+#     print(f"Models folder exists = {os.path.exists(models_path)}")
     
 #     # OpenCLIP (EXACT from app.py)
 #     clip_model, _, preprocess = open_clip.create_model_and_transforms(
